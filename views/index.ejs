@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeIt! Student Apps</title>
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAFxAaiYq8q-gK8lvHxlwY65Fk4jlkLghQ",
+        authDomain: "codeit-ai.firebaseapp.com",
+        databaseURL: "https://codeit-ai.firebaseio.com",
+        storageBucket: "codeit-ai.appspot.com",
+        messagingSenderId: "276865827510"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+      body {
+        font-family: 'Roboto Condensed', sans-serif;
+        padding-top: 100px;
+        text-align: center;
+      }
+
+      .button {
+        background-color: #2ecc71;
+        color: white;
+        cursor: pointer;
+        height: 2em;
+        width: 200px;
+      }
+
+      .card {
+        color: white;
+        cursor: pointer;
+        height: 200px;
+        margin: 2em 1.2em;
+        width: 200px;
+      }
+
+      .center-container {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .container-vertical {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #student-card {
+        background-color: #9b59b6;
+      }
+
+      #app-card {
+        background-color: #8e44ad;
+      }
+
+      .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 64px;  /* Preferred icon size */
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+
+        /* Support for all WebKit browsers. */
+        -webkit-font-smoothing: antialiased;
+        /* Support for Safari and Chrome. */
+        text-rendering: optimizeLegibility;
+
+        /* Support for Firefox. */
+        -moz-osx-font-smoothing: grayscale;
+
+        /* Support for IE. */
+        font-feature-settings: 'liga';
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#student-card').click(function() {
+          window.location = 'students'
+        })
+
+        $('#upload').click(function() {
+          window.location = 'upload'
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <a href="/"><img src="/logo.png" width="300"/></a>
+    </div>
+
+    <div class="container container-vertical center-container">
+      <div class="container center-container">
+        <div class="card container-vertical center-container" id="student-card">
+          <i class="material-icons">people_outline</i>
+          <p>View by Student</p>
+        </div>
+
+        <div class="card container-vertical center-container" id="app-card">
+          <i class="material-icons">phone_android</i>
+          <p>View by App</p>
+        </div>
+      </div>
+
+      <div class="container center-container button" id="upload">
+        <p>Upload</p>
+      </div>
+    </div>
+  </body>
+</html>
