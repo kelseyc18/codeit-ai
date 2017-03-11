@@ -13,8 +13,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(fileUpload());
 
+const DROPBOX_ACCESS_TOKEN = process.env.DROPBOX_ACCESS_TOKEN
+
 // TODO: convert access token to environment variable
-var dbx = new Dropbox({ accessToken: /* INSERT ACCESS TOKEN HERE */ })
+var dbx = new Dropbox({ accessToken: DROPBOX_ACCESS_TOKEN })
 
 app.listen(3000, function() {
   console.log('listening on 3000')
@@ -43,7 +45,7 @@ app.post('/upload', (req, res) => {
 
   var file_name = '/photo.jpg'
 
-  //// testing access token
+  // // testing access token
   // dbx.filesListFolder({path: ''})
   //   .then(function(response) {
   //     console.log(response);
@@ -59,7 +61,7 @@ app.post('/upload', (req, res) => {
   var options = {
     url: 'https://content.dropboxapi.com/2/files/upload',
     headers: {
-      'Authorization': 'Bearer INSERT ACCESS TOKEN HERE',
+      'Authorization': 'Bearer ' + DROPBOX_ACCESS_TOKEN,
       'Dropbox-API-Arg': '{"path": "' + apk_path + '"}',
       'Content-Type': 'application/octet-stream'
     },
